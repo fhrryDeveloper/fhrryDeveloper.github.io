@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    font-weight: 300;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    cursor: default;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    background-color: rgba(0, 0, 0, 0.993);
+    color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+@media screen and (max-width: 540px) {
+    .info-view {
+        left: 0px !important;
+        margin: 0px !important;
+        border-top-right-radius: 0px !important;
+        border-top-left-radius: 0px !important;
+    }
+}
+
+.info-view {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 275px);
+    width: 510px;
+    max-width: calc(100% - 30px);
+    z-index: 5;
+    text-align: center;
+    margin: 5px;
+    padding: 15px;
+    color: #cccccc;
+    border-radius: 5px;
+    background-color: rgb(34, 34, 34);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.14);
+}
+
+.info-view div {
+    font-weight: bolder;
+    display: inline-block;
+    margin: 0 22px;
+}
+
+.info-view div b {
+    font-weight: bold;
+}
+
+.time-left, .moves-left {
+    display: none;
+}
+
+.gamerule-selector {
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 40px);
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+    background-attachment: fixed;
+    height: calc(100% - 40px);
+    z-index: 7;
+    color: white;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gamerule-selector p {
+    font-size: 20px;
+}
+
+.round-count-picker {
+    margin: 20px;
+}
+
+.pan-radio .radio-choice {
+    width: 200px;
+    border-radius: 25px;
+}
+
+.radio-choice {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    cursor: pointer;
+    margin: 20px 5px;
+    line-height: 50px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 0 0 0 white;
+    font-weight: bolder;
+    transition: 0.3s;
+}
+
+.radio-choice:hover {
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+input[type="checkbox"]:checked + .radio-choice, input[type="radio"]:checked + .radio-choice {
+    box-shadow: inset 0 0 0 2px white;
+}
+
+input[type="checkbox"] + .radio-choice:after {
+    content: ' restricted';
+}
+
+input[type="checkbox"]:checked + .radio-choice:after {
+    content: ' allowed';
+}
+
+.gamerule-selector input[type="radio"], .gamerule-selector input[type="checkbox"] {
+    display: none;
+}
+
+.number-picker {
+    display: block;
+    margin: 20px;
+}
+
+.hint {
+    font-size: 14px !important;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.gamerule-selector input[type="number"] {
+    border: none;
+    background-color: transparent;
+    box-shadow: 0 2px 1px -2px white;;
+    color: white;
+    display: inline-block;
+    margin: 20px;
+    width: 70px;
+    padding: 20px 0 !important;
+    cursor: text;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 0;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.gamerule-selector h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.map-element {
+    width: 100%;
+    height: 100%;
+}
+
+.gamerule-selector input[type="submit"] {
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 20px;
+    margin-top: 20px;
+    color: white;
+    box-shadow: inset 0 0 0 0 white;
+    font-weight: 300;
+    transition: 0.25s;
+}
+
+.gamerule-selector input[type="submit"]:hover {
+    background-color: white;
+    color: #330867;
+    box-shadow: inset 0 0 0 2px white;
+    transform: scale(1.05);
+}
+
+.guess-overview {
+    transform: translateY(-100%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 6;
+    overflow-y: auto;
+    /* background-image: linear-gradient(to right, #d4fc79, #96e6a1); */
+    /* background-image: linear-gradient(to right, #43e97b, #38f9d7); */
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.overview-map {
+    width: calc(100% - 40px);
+    position: absolute !important;
+    height: calc(100% - 367px);
+    border-radius: 20px;
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.3);
+    margin: 20px;
+}
+
+.score-view {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 330px;
+    text-align: center;
+}
+
+.score-text {
+    padding: 20px;
+    margin-bottom: 27px;
+    background-color: #0000004d;
+}
+
+.score-view p {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400 !important;
+    padding: 5px;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.score-progress-bar {
+    width: calc(80% - 40px);
+    height: 20px;
+    display: inline-block;
+    background-color: #dcf4ff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
+    margin-top: 5px;
+    border-radius: 3px;
+}
+
+.score-progress {
+    width: 0;
+    height: 100%;
+    background-image: linear-gradient(to right, #06f998, #25a055);
+    border-radius: 3px;
+    transition: 0.6s;
+}
+
+.button {
+    display: inline-block;
+    background-color: #deffeb;
+    padding: 15px 50px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+    color: #000000cf;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.button:hover {
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+.game-end-buttons {
+    display: none;
+}
+
+.game-end-buttons .button {
+    margin-bottom: 15px;
+    border: none;
+}
+
+.game-end-buttons input[type='submit'] {
+    font-size: inherit;
+}
+
+.username-input {
+    border: none;
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: inherit;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: text;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+    color: #000000cf;
+}
+
+.guess-map {
+    position: absolute !important;
+    z-index: 5;
+    left: 0;
+    min-width: 100px;
+    min-height: 100px;
+    bottom: 0;
+    height: 250px;
+    width: 250px;
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+.guess-button {
+    height: 40px;
+    width: 100%;
+    background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    line-height: 40px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.guess-map-resizer {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 8;
+    cursor: sw-resize;
+}
+
+.embed-map {
+    height: calc(100% - 40px);
+    width: 100%;
+    border-top-right-radius: 10px;
+}
+
+.toggle-map-overlay {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: rgb(34, 34, 34);
+    color: #ccc;
+    border-radius: 50%;
+    background-image: url(../img/layers.svg);
+    background-size: 60%;
+    background-position: center;
+    z-index: 5;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.return-home {
+    position: absolute;
+    right: 10px;
+    bottom: 211px;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    z-index: 5;
+    background-color: rgb(34, 34, 34);
+    background-image: url(../img/flag.png);
+    background-size: 48%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.streetview {
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 0;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.20);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: rgba(0, 0, 0, 0.60);
+}
+
+*:focus {
+    outline: none;
+}
+
+*:link, *:visited {
+    color: white;
+    text-decoration: none;
+}
+
+::-moz-selection {
+    color: white;
+    background: #3b5d78;
+}
+
+::selection {
+    color: white;
+    background: #3b5d78;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+:-moz-placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+input[type=text], input[type=password], input[type=email], input[type=number] textarea {
+    cursor: text;
+}
+
+input[type='button'], input[type='submit'], a[href] {
+    cursor: pointer;
+}
