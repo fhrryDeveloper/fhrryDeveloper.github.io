@@ -1,169 +1,439 @@
-<html lang='nl'>
+<!DOCTYPE html>
+<html>
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35913371-9"></script>
+    <title>Hello World!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap 4.0.0-beta.2 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <!-- main style -->
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=2018.09.20">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107490980-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag() { dataLayer.push(arguments) };
         gtag('js', new Date());
 
-        gtag('config', 'UA-35913371-9');
+        gtag('config', 'UA-107490980-1');
     </script>
-    <meta charset='utf-8'/>
-    <title>Location Estimatr</title>
-    <meta name='theme-color' content='#3cba92'>
-    <meta name='mobile-web-app-capable' content='yes'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='icon' sizes='192x192' href='img/favicon.png'>
-    <link rel='shortcut icon' type='image/png' href='img/favicon.png'>
-    <!--<link rel="icon" href="img/favicon.ico" type="image/x-icon" />-->
-    <!--<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />-->
-    <!-- Favicon moet 192x192 zijn -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
-    <link rel='stylesheet' href='homepage/main.css'>
-    <script src='homepage/script.js' type='text/javascript'></script>
 </head>
 
 <body>
-<div class="front-page">
-    <h1>Location Estimatr</h1>
-    <h3>
-        Location Estimatr 2 now available at <a href="https://locationestimatr.web.app?utm_source=le1">locationestimatr.web.app</a>
-    </h3>
-    <p>Location Estimatr 1 will stay live here.</p>
-    <div class="maps">
-        <h2>Official Maps</h2>
-        <div class="kml-maps map-container">
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/world.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">World</div>
-                    <div class="map-actions">
-                        <a href=./play#world class="map-play">Play</a>
-                        <a href=./highscore#world class="map-score">Scores</a>
-                    </div>
-                </div>
-            </div>
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/my_area.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">My Area</div>
-                    <div class="map-actions">
-                        <label class="radius-picker">
-                            <span>Radius</span>
-                            <input type="number" class="radius-input" value="10" placeholder="Radius in km">
-                            <span>km</span>
-                        </label>
-                        <span class="clickable map-play" onmouseup="playMyArea(event)">Play</span>
-                    </div>
-                </div>
+    <header>
+        <div class='slider-navigation'>
+            <div class='nav-pointer draggable'>
+                0/0
             </div>
         </div>
-        <h2>Country Collection Maps</h2>
-        <div class="collection-maps map-container">
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/european_union.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">European Union</div>
-                    <div class="map-actions">
-                        <a href=./play#european_union class="map-play">Play</a>
-                        <a href=./highscore#european_union class="map-score">Scores</a>
-                    </div>
-                </div>
-            </div>
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/benelux.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">Benelux</div>
-                    <div class="map-actions">
-                        <a href=./play#benelux class="map-play">Play</a>
-                        <a href=./highscore#benelux class="map-score">Scores</a>
-                    </div>
-                </div>
-            </div>
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/africa.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">Africa</div>
-                    <div class="map-actions">
-                        <a href=./play#africa class="map-play">Play</a>
-                        <a href=./highscore#africa class="map-score">Scores</a>
-                    </div>
-                </div>
-            </div>
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/north_america.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">North America</div>
-                    <div class="map-actions">
-                        <a href=./play#north_america class="map-play">Play</a>
-                        <a href=./highscore#north_america class="map-score">Scores</a>
-                    </div>
-                </div>
-            </div>
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/south_america.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">South America</div>
-                    <div class="map-actions">
-                        <a href=./play#south_america class="map-play">Play</a>
-                        <a href=./highscore#south_america class="map-score">Scores</a>
-                    </div>
-                </div>
-            </div>
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/europe.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">Europe</div>
-                    <div class="map-actions">
-                        <a href=./play#europe class="map-play">Play</a>
-                        <a href=./highscore#europe class="map-score">Scores</a>
-                    </div>
-                </div>
-            </div>
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/asia.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">Asia</div>
-                    <div class="map-actions">
-                        <a href=./play#asia class="map-play">Play</a>
-                        <a href=./highscore#asia class="map-score">Scores</a>
-                    </div>
-                </div>
-            </div>
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/south_east_asia.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">South East Asia</div>
-                    <div class="map-actions">
-                        <a href=./play#south_east_asia class="map-play">Play</a>
-                        <a href=./highscore#south_east_asia class="map-score">Scores</a>
-                    </div>
-                </div>
-            </div>
-            <div class="map">
-                <div class="map-background" style="background-image:url(data/thumbnails/oceania.jpg)"></div>
-                <div class="map-text">
-                    <div class="map-title">Oceania</div>
-                    <div class="map-actions">
-                        <a href=./play#oceania class="map-play">Play</a>
-                        <a href=./highscore#oceania class="map-score">Scores</a>
-                    </div>
-                </div>
-            </div>
+    </header>
+    <div class='site-container'>
+        <!-- select style button -->
+        <div class="btn-group" id="changestyle">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <span id="selstyle">Style Space</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" data-val="default">Style Block</a></li>
+                <li><a class="dropdown-item" href="#" data-val="space">Style Space</a></li>
+                <li><a class="dropdown-item" href="#" data-val="snow">Style Snow</a></li>
+            </ul>
         </div>
-        <h2>Country Maps</h2>
-        <div class="country-maps map-container">
-        </div>
-    </div>
-</div>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSsM7w_AJe5rjvfIToes6BDYCWECEXz9E&libraries=geometry"></script>
+        <section class='intro'>
+            <div id='particles-js'></div>
+            <div class='wrap'>
+                <div class='content'>
+                    <div class="profile-card">
+                        <header>
+                            <!-- avatar -->
+                            <a><img src="img/profile.jpg" class="unselectable"></a>
+                            <!-- name -->
+                            <h1 class="unselectable">Li Dok Il</h1>
+                            <!-- role -->
+                            <h2 class="unselectable">Full Stack Web and Mobile app Developer</h2>
+                        </header>
+                        <div class="profile-bio">
+                            <p class="unselectable">
+                                Passionate about technology
+                                <br>Blockchain Enthusiast
+                            </p>
+                        </div>
+                        <!-- social links -->
+                        <ul class="profile-social-links">
+                            <li><a target="_blank" href="https://web.skype.com/">
+                                    <i class="fa fa-lg fa-skype"></i>
+                                </a>
+                            </li>
+                            <li><a target="_blank" href="https://stackoverflow.com/users/14400666/li-dokil">
+                                    <i class="fa fa-lg fa-stack-overflow"></i>
+                                </a>
+                            </li>
+                            <li><a target="_blank" href="https://github.com/fhrryDeveloper">
+                                    <i class="fa fa-lg fa-github-alt"></i>
+                                </a>
+                            </li>
+                            <li><a target="_blank" href="https://behance.net/topdeveloper1">
+                                    <i class="fa fa-lg fa-behance"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="parallax-window" data-parallax="scroll" data-image-src="img/Ottawa_1920x1080.jpg"></div>
+        <section>
+            <div class="about-me">
+                <div class="text-center">
+                    <img class="unselectable" src="img/about-me.png" height="100" width="550">
+                    <br><br>
+                </div>
+                <div class="clearfix"></div>
+                <div class="about-me__content" id="terminal-start">
+                    <p>Last login: Thu Oct 12 00:28:38 2017 from
+                        cpe44d9e79bd14b-cma84e3fd1a7d0.cpe.net.cable.rogers.com</p>
+                    <pre style="border: none;">
+         __|  __|_  )
+         _|  (     /   Amazon Linux AMI
+        ___|\___|___|
+
+Amazon Linux version 2017.09 is available.
+</pre>
+                    <br><br>
+                    <div class="command">
+                        <!-- email -->
+                        <p>echo $email</p>
+                        <span class="hideme">email: fhrrydeveloper@gmail.com</span>
+                        <!-- phone -->
+                        <p>echo $skype</p>
+                        <span class="hideme">skype: live:.cid.a31819d45e325fb</span>
+                        <!-- address -->
+                        <p>echo $address</p>
+                        <span class="hideme">address: Dandong, China</span>
+                        <!-- education -->
+                        <p>echo $education</p>
+                        <span class="hideme">Tsinghua University • 2012 - 2017<br>
+                            Degree: Master of IT Science</span>
+                        <!-- eligible_to_work -->
+                        <p>echo $role</p>
+                        <span class="hideme">Senior Web and Mobile App Developer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="parallax-window-half" data-parallax="scroll" data-image-src="img/code.png"></div>
+        <section class="flx-center">
+            <div class="text-center">
+
+                <!-- Block 5 (SHA-256 blockchain) -->
+                <div class="one-block latest-block">
+                    <p class="h4 text-center">Experience 005</p><br>
+                    <div class="block-data">
+                        <p>
+                            <label>Title:</label><b>Software Developer</b></p>
+                        <p>
+                            <label>Company:</label>Dpoinbox Inc.</p>
+                        <p>
+                            <label>Stack:</label>Mongodb, Node, React</p>
+                        <p>
+                            <label>Time:</label>May 2019 - Present</p>
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+                </div>
+
+                <!-- Block 4 (SHA-256 blockchain) -->
+                <div class="one-block latest-red">
+                    <p class="h4 text-center">Experience 004</p><br>
+                    <div class="block-data">
+                        <p>
+                            <label>Title:</label><b>Full Stack Developer</b></p>
+                        <p>
+                            <label>Company:</label>Tutor-Club Inc.</p>
+                        <p>
+                            <label>Stack:</label>Mongodb, NodeJS, Angular</p>
+                        <p>
+                            <label>Time:</label>Feb 2018 - May 2019</p>
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+                </div>
+
+                <!-- Block 3 (SHA-256 blockchain) -->
+                <div class="one-block latest-yellow">
+                    <p class="h4 text-center">Experience 003</p><br>
+                    <div class="block-data">
+                        <p>
+                            <label>Title:</label><b>Software Application Developer</b></p>
+                        <p>
+                            <label>Company:</label>Fitness Finance Inc.</p>
+                        <p>
+                            <label>Stack:</label>Mysql, Laravel, PHP</p>
+                        <p>
+                            <label>Time:</label>Mar 2017 - Feb 2018</p>
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+                </div>
+
+                <br>
+                <!-- Block 2 (SHA-256 blockchain) -->
+                <div class="one-block hide-mobile latest-green">
+                    <p class="h4 text-center">Experience 002</p><br>
+                    <div class="block-data">
+                        <p>
+                            <label>Title:</label><b>Front End Developer</b></p>
+                        <p>
+                            <label>Company:</label>Smart-Product Inc.</p>
+                        <p>
+                            <label>Stack:</label>Vue.js, Bootstrap, JS, HTML5, CSS3</p>
+                        <p>
+                            <label>Time:</label>June 2016 - Nov 2016</p>
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+                </div>
+
+                <!-- Block 1 (SHA-256 blockchain) -->
+                <div class="one-block hide-mobile latest-blue">
+                    <p class="h4 text-center">Experience 001</p><br>
+                    <div class="block-data">
+                        <p>
+                            <label>Title:</label><b>Mobile App Developer</b></p>
+                        <p>
+                            <label>Company:</label>Mobile app Team</p>
+                        <p>
+                            <label>Stack:</label>Ionic, React-native, Firebase</p>
+                        <p>
+                            <label>Time:</label>Mar 2015 - Feb 2016</p>
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="text-center h5">SHA-256 blockchain</div>
+            </div>
+        </section>
+        <div class="parallax-window" data-parallax="scroll" data-image-src="img/test-oct-6.png"></div>
+        <!-- =================== script =================== -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+        <script src="lib/parallax.js-1.4.2/parallax.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+
+        <!-- particles js -->
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+        <!-- bootstrap 4.0.0-beta.2 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+
+        <!-- main js file -->
+        <script src="js/main.js"></script>
+
+        <script>
+            $(document).ready(function () {
+
+                // random style on page load
+                let display_text = ''
+                switch (Math.round(Math.random() * 2 + 1)) {
+                    case 1:
+                        styleDefault();
+                        display_text = 'Style Block'
+                        break;
+                    case 2:
+                        styleSpace();
+                        display_text = 'Style Space'
+                        break;
+                    case 3:
+                        styleSnow();
+                        display_text = 'Style Snow'
+                        break;
+                    default:
+                        styleSpace();
+                        display_text = 'Style Block'
+                }
+                $('#selstyle').text(display_text);
+
+                $('#changestyle .dropdown-menu a').click(function () {
+                    var style = $(this).data('val');
+                    switch (style) {
+                        case 'default':
+                            styleDefault();
+                            break;
+                        case 'space':
+                            styleSpace();
+                            break;
+                        case 'snow':
+                            styleSnow();
+                            break;
+                        default:
+                            styleSpace();
+                    }
+                    $('#selstyle').text($(this).text());
+                });
+
+                /*-------------------------------
+                    terminal linux style
+                -------------------------------*/
+                var about_me_content_displayed = false;
+                var $lines = $('.command p');
+                $lines.hide();
+
+                var lineContents = [];
+                var output = [];
+
+                var terminal = function () {
+                    var skip = 0;
+                    typeLine = function (idx) {
+                        idx == null && (idx = 0);
+                        var element = $lines.eq(idx);
+                        var content = lineContents[idx];
+                        if (typeof content == "undefined") {
+                            $('.skip').hide();
+                            return;
+                        }
+                        var charIdx = 0;
+                        var typeChar = function () {
+                            var rand = Math.round(Math.random() * 150) + 20;
+
+                            setTimeout(function () {
+                                var char = content[charIdx++];
+                                element.append(char);
+                                if (typeof char !== "undefined")
+                                    typeChar();
+                                else {
+                                    element.append('<br/><span class="output">' + output[idx] + '</span>');
+                                    element.removeClass('active');
+                                    typeLine(++idx);
+                                }
+                            }, skip ? 0 : rand);
+                        }
+                        element.append('[ec2-user@ip-127-0-0-1 ~]$ ').addClass('active');
+                        typeChar();
+                    }
+
+                    $lines.each(function (i) {
+                        lineContents[i] = $(this).text();
+                        output[i] = $(this).next('span').html();
+                        $(this).text('').show();
+                    });
+                    typeLine();
+                }
+
+                $(window).scroll(function () {
+                    var hT = $('#terminal-start').offset().top,
+                        hH = $('#terminal-start').outerHeight(),
+                        wH = $(window).height(),
+                        wS = $(this).scrollTop() - 250;
+                    if (wS > (hT + hH - wH) && !about_me_content_displayed) {
+                        about_me_content_displayed = true;
+                        terminal();
+                    }
+                });// end terminal style -------
+
+                $('section').each(function () {
+                    $('.slider-navigation').prepend('<div class="tick"></div>');
+                });
+
+                $('.tick').on('click', function () {
+                    var tickIndex = $(this).index();
+                    $('body').scrollTop($(window).height() * tickIndex);
+                });
+
+                updatePos();
+            }); // end document ready -------
+
+            var isDragging = false;
+            var sliderTop, pointerPos, currentSection;
+
+            var bodyHeight = $('body').height();
+            var sliderHeight = $('.slider-navigation').height();
+            var elementHeight = $('section').height();
+            var sectionAmount = $('section').length;
+            var scale = (bodyHeight - (elementHeight)) / (sliderHeight - $('.nav-pointer').outerHeight());
+
+            var waitForFinalEvent = (function () {
+                var timers = {};
+                return function (callback, ms, uniqueId) {
+                    if (!uniqueId) {
+                        uniqueId = "resize";
+                    }
+                    if (timers[uniqueId]) {
+                        clearTimeout(timers[uniqueId]);
+                    }
+                    timers[uniqueId] = setTimeout(callback, ms);
+                };
+            })();
+
+            function updatePos() {
+                currentSection = $(window).scrollTop() / elementHeight;
+                currentSectionNum = Math.ceil(currentSection + 0.01);
+                sliderTop = $(window).scrollTop() / scale;
+                $('.nav-pointer').css('top', sliderTop).text(currentSectionNum + '/' + sectionAmount);
+            }
+
+            function sliderMove(e) {
+                $('body').scrollTop(parseInt(e) * scale);
+            }
+
+            $(window).scroll(function () {
+                if (!isDragging) {
+                    updatePos();
+                }
+            });
+
+            $(window).resize(function () {
+                waitForFinalEvent(function () {
+                    bodyHeight = $('body').height();
+                    sliderHeight = $('.slider-navigation').height();
+                    elementHeight = $('section').height();
+                    sectionAmount = $('section').length;
+                    scale = (bodyHeight - (elementHeight)) / (sliderHeight - $('.nav-pointer').outerHeight());
+
+                    updatePos();
+                }, 500, "resizing");
+            });
+
+            // $(".draggable").draggable({
+            //  axis: "y",
+            //  containment: "parent",
+            //  start: function() {
+            //      isDragging = true;
+            //      $('body').addClass('dragging');
+            //  },
+            //  drag: function() {
+            //      pointerPos = $(this).css('top');
+            //      sliderMove(pointerPos);
+            //      updatePos();
+            //  },
+            //  stop: function() {
+            //      isDragging = false;
+            //      $('body').removeClass('dragging');
+            //  }
+            // });
+
+            // Steve Jobs Quotes
+            console.log("\n \t Your work is going to fill a large part of your life,\n and the only way to be " +
+                "truly satisfied is to do what you \n believe is great work. And the only way to do great" +
+                " work \n is to love what you do. If you haven't found it yet, keep \n looking. Don't settle." +
+                " As with all matters of the heart, \n you'll know when you find it.\n\n\n \t\t\t\t\t\t\t\t\t\t\t " +
+                "Steve Jobs \n\n");
+
+        </script>
 </body>
 
 </html>
